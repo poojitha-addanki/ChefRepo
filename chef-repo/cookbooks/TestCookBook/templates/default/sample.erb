@@ -1,0 +1,16 @@
+# This file is managed by Chef
+# Any changes made by hand will be overwritten
+ 
+Hello <%= node['helloworld']['place'] %>!
+ 
+<% if node['cpu']['total'] == 1 -%>
+This computer has <%= node['cpu']['total'] %> CPU!
+<% else -%>
+This computer has <%= node['cpu']['total'] %> CPU!
+<% end -%>
+ # This is to get another template file  refer to https://docs.chef.io/resource_template.html#render-method
+<%= render "ipaddress.erb" -%>
+ 
+<% if node['helloworld']['encore'] == false -%>
+There will be no encore
+<% end -%>
